@@ -9,7 +9,7 @@
     <style>
         /* CSS Custom Properties for Theme Management */
         :root {
-    /* Orange Theme (Default) */
+    /* Orange Light Theme (Default) */
     --primary-bg: #ffffff;
     --secondary-bg: #fff7ed;
     --accent-bg: #fed7aa;
@@ -23,8 +23,23 @@
     --gradient-bg: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
 }
 
+[data-theme="orange-dark"] {
+    /* Orange Dark Theme */
+    --primary-bg: #1a1a1a;
+    --secondary-bg: #2d1b16;
+    --accent-bg: #3d2417;
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+    --accent-color: #f97316;
+    --accent-hover: #ea580c;
+    --border-color: #3d2417;
+    --shadow: rgba(249, 115, 22, 0.2);
+    --gradient-bg: linear-gradient(135deg, #2d1b16 0%, #3d2417 100%);
+}
+
 [data-theme="blue"] {
-    /* Blue Theme */
+    /* Blue Light Theme */
     --primary-bg: #ffffff;
     --secondary-bg: #eff6ff;
     --accent-bg: #bfdbfe;
@@ -38,8 +53,23 @@
     --gradient-bg: linear-gradient(135deg, #eff6ff 0%, #bfdbfe 100%);
 }
 
+[data-theme="blue-dark"] {
+    /* Blue Dark Theme */
+    --primary-bg: #1a1a1a;
+    --secondary-bg: #1e2a3a;
+    --accent-bg: #2a3f5f;
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+    --accent-color: #3b82f6;
+    --accent-hover: #2563eb;
+    --border-color: #2a3f5f;
+    --shadow: rgba(59, 130, 246, 0.2);
+    --gradient-bg: linear-gradient(135deg, #1e2a3a 0%, #2a3f5f 100%);
+}
+
 [data-theme="green"] {
-    /* Green Theme */
+    /* Green Light Theme */
     --primary-bg: #ffffff;
     --secondary-bg: #f0fdf4;
     --accent-bg: #bbf7d0;
@@ -53,8 +83,23 @@
     --gradient-bg: linear-gradient(135deg, #f0fdf4 0%, #bbf7d0 100%);
 }
 
+[data-theme="green-dark"] {
+    /* Green Dark Theme */
+    --primary-bg: #1a1a1a;
+    --secondary-bg: #1f2d1f;
+    --accent-bg: #2d4a2d;
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+    --accent-color: #22c55e;
+    --accent-hover: #16a34a;
+    --border-color: #2d4a2d;
+    --shadow: rgba(34, 197, 94, 0.2);
+    --gradient-bg: linear-gradient(135deg, #1f2d1f 0%, #2d4a2d 100%);
+}
+
 [data-theme="yellow"] {
-    /* Yellow Theme */
+    /* Yellow Light Theme */
     --primary-bg: #ffffff;
     --secondary-bg: #fefce8;
     --accent-bg: #fef08a;
@@ -66,6 +111,21 @@
     --border-color: #fef08a;
     --shadow: rgba(234, 179, 8, 0.1);
     --gradient-bg: linear-gradient(135deg, #fefce8 0%, #fef08a 100%);
+}
+
+[data-theme="yellow-dark"] {
+    /* Yellow Dark Theme */
+    --primary-bg: #1a1a1a;
+    --secondary-bg: #2d2416;
+    --accent-bg: #3d3217;
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+    --accent-color: #fbbf24;
+    --accent-hover: #f59e0b;
+    --border-color: #3d3217;
+    --shadow: rgba(251, 191, 36, 0.2);
+    --gradient-bg: linear-gradient(135deg, #2d2416 0%, #3d3217 100%);
 }
 
         /* Reset and Base Styles */
@@ -86,6 +146,39 @@
             background-color: var(--primary-bg);
             transition: all 0.3s ease;
         }
+
+        /* Icon Styles */
+        .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1em;
+            height: 1em;
+        }
+
+        .icon-home::before { content: "⌂"; }
+        .icon-building::before { content: "▢"; }
+        .icon-tools::before { content: "⚒"; }
+        .icon-list::before { content: "☰"; }
+        .icon-settings::before { content: "⚙"; }
+        .icon-circle::before { content: "◐"; }
+        .icon-mail::before { content: "✉"; }
+        .icon-phone::before { content: "☎"; }
+        .icon-location::before { content: "⌖"; }
+        .icon-menu::before { content: "☰"; }
+        .icon-sun::before { content: "☀"; }
+        .icon-moon::before { content: "🌙"; }
+        .icon-star::before { content: "★"; }
+        .icon-quote::before { content: "\201D"; }
+        .icon-up::before { content: "↑"; }
+
+        /* Social Media Icons */
+        .icon-facebook::before { content: "f"; background: #1877f2; color: white; border-radius: 3px; padding: 2px; font-weight: bold; font-size: 0.8em; }
+        .icon-instagram::before { content: "ig"; background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); color: white; border-radius: 3px; padding: 2px; font-weight: bold; font-size: 0.7em; }
+        .icon-twitter::before { content: "t"; background: #1da1f2; color: white; border-radius: 3px; padding: 2px; font-weight: bold; font-size: 0.8em; }
+        .icon-linkedin::before { content: "in"; background: #0077b5; color: white; border-radius: 3px; padding: 2px; font-weight: bold; font-size: 0.7em; }
+        .icon-pinterest::before { content: "p"; background: #bd081c; color: white; border-radius: 3px; padding: 2px; font-weight: bold; font-size: 0.8em; }
+        .icon-youtube::before { content: "yt"; background: #ff0000; color: white; border-radius: 3px; padding: 2px; font-weight: bold; font-size: 0.7em; }
 
         /* Header Styles */
         .header {
@@ -177,10 +270,37 @@
 
         /* Theme Toggle */
         .theme-toggle {
-            display: flex;
-            gap: 0.5rem;
-            margin-left: 1rem;
-        }
+    display: flex;
+    gap: 1rem;
+    margin-left: 1rem;
+}
+
+.theme-group {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+}
+
+.theme-mode-btn {
+    width: 25px;
+    height: 25px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--primary-bg);
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-mode-btn.active {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
 
         .theme-btn {
             width: 30px;
@@ -196,7 +316,6 @@
 .theme-btn.blue { background: #2563eb; }
 .theme-btn.green { background: #16a34a; }
 .theme-btn.yellow { background: #eab308; }
-.theme-btn.black { background: #0a0a0a; }
 
         .theme-btn.active {
             border-color: var(--accent-color);
@@ -323,14 +442,99 @@
             align-items: center;
         }
 
-        .about-image img {
-            width: 100%;
-            max-width: 400px;
-            height: 500px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px var(--shadow);
-        }
+        /* About Section - Social Media Overlay */
+.about-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.social-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+}
+
+.about-image:hover .social-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.about-image:hover .social-icon {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.social-icon:nth-child(1) { transition-delay: 0.1s; }
+.social-icon:nth-child(2) { transition-delay: 0.2s; }
+.social-icon:nth-child(3) { transition-delay: 0.3s; }
+.social-icon:nth-child(4) { transition-delay: 0.4s; }
+.social-icon:nth-child(5) { transition-delay: 0.5s; }
+.social-icon:nth-child(6) { transition-delay: 0.6s; }
+
+.social-icon:hover {
+    background: var(--accent-hover);
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* Social Media Icons Responsive */
+@media (max-width: 768px) {
+    .social-icons {
+        gap: 0.75rem;
+    }
+    
+    .social-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+}
 
         .about-content h2 {
             font-size: 2.5rem;
@@ -345,6 +549,59 @@
             margin-bottom: 1.5rem;
             line-height: 1.7;
         }
+
+        /* Skills Section */
+.skills {
+    padding: 6rem 0;
+    background: var(--primary-bg);
+}
+
+.skills-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.skill-category h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.skill-item {
+    margin-bottom: 1.5rem;
+}
+
+.skill-name {
+    display: block;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.skill-bar {
+    height: 8px;
+    background: var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: var(--accent-color);
+    border-radius: 4px;
+    width: 0;
+    transition: width 1.5s ease-in-out;
+}
 
         /* Services Section */
         .services {
@@ -410,6 +667,82 @@
             line-height: 1.6;
         }
 
+        /* Process Section */
+.process {
+    padding: 6rem 0;
+    background: var(--secondary-bg);
+}
+
+.process-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.process-timeline {
+    margin-top: 3rem;
+    position: relative;
+}
+
+.process-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--accent-color);
+    transform: translateX(-50%);
+}
+
+.process-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.process-step:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+}
+
+.step-content {
+    flex: 1;
+    background: var(--primary-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow);
+    margin: 0 2rem;
+    max-width: 400px;
+}
+
+.step-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.step-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
         /* Portfolio Section */
         .portfolio {
             padding: 6rem 0;
@@ -462,6 +795,227 @@
             color: var(--text-secondary);
             line-height: 1.6;
         }
+
+        /* Testimonials Section - New Design */
+        .testimonials {
+            padding: 6rem 0;
+            background: var(--secondary-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--accent-color)10, transparent 70%);
+            opacity: 0.05;
+        }
+
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .testimonials-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .testimonials-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .testimonials-slider {
+            position: relative;
+        }
+
+        .testimonial-item {
+            background: var(--primary-bg);
+            border-radius: 25px;
+            padding: 3rem;
+            margin: 0 1rem;
+            box-shadow: 0 20px 60px var(--shadow);
+            text-align: center;
+            position: relative;
+            border: 1px solid var(--border-color);
+        }
+
+        .testimonial-quote {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-style: italic;
+            position: relative;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .author-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+        }
+
+        .author-details h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-details p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .testimonial-rating {
+            display: flex;
+            justify-content: center;
+            gap: 0.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .rating-star {
+            color: #fbbf24;
+            font-size: 1.2rem;
+        }
+
+        /* Testimonials Navigation */
+        .testimonials-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: var(--accent-color);
+            transform: scale(1.2);
+        }
+
+        /* Testimonials Responsive */
+        @media (max-width: 768px) {
+            .testimonial-item {
+                padding: 2rem;
+                margin: 0 0.5rem;
+            }
+
+            .testimonial-text {
+                font-size: 1.1rem;
+            }
+
+            .testimonials-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .process-timeline::before {
+        left: 30px;
+    }
+    
+    .process-step {
+        flex-direction: row !important;
+        padding-left: 80px;
+    }
+    
+    .step-number {
+        position: absolute;
+        left: 0;
+    }
+    
+    .step-content {
+        margin: 0;
+        margin-left: 2rem;
+    }
+}
 
         /* CTA Section */
         .cta-section {
@@ -752,23 +1306,34 @@
             </a>
             
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-                <li><a href="#contact" class="contact-btn">Contact</a></li>
-                
-                <li class="theme-toggle">
-    <button class="theme-btn orange active" data-theme="light" aria-label="Orange theme" title="Orange theme"></button>
-    <button class="theme-btn blue" data-theme="blue" aria-label="Blue theme" title="Blue theme"></button>
-    <button class="theme-btn green" data-theme="green" aria-label="Green theme" title="Green theme"></button>
-    <button class="theme-btn yellow" data-theme="yellow" aria-label="Yellow theme" title="Yellow theme"></button>
-    <button class="theme-btn black" data-theme="yellow" aria-label="black theme" title="black theme"></button>
-</li>
-            </ul>
+    <li><a href="#home" class="nav-link active">Home</a></li>
+    <li><a href="#about" class="nav-link">About</a></li>
+    <li><a href="#skills" class="nav-link">Skills</a></li>
+    <li><a href="#services" class="nav-link">Services</a></li>
+    <li><a href="#process" class="nav-link">Process</a></li>
+    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+    <li><a href="#contact" class="contact-btn">Contact</a></li>
+    
+    <li class="theme-toggle">
+        <div class="theme-group">
+            <button class="theme-btn orange active" data-theme="light" aria-label="Orange theme" title="Orange theme"></button>
+            <button class="theme-mode-btn icon icon-sun" data-mode="light" aria-label="Light mode" title="Light mode"></button>
+            <button class="theme-mode-btn icon icon-moon" data-mode="dark" aria-label="Dark mode" title="Dark mode"></button>
+        </div>
+        <div class="theme-group">
+            <button class="theme-btn blue" data-theme="blue" aria-label="Blue theme" title="Blue theme"></button>
+        </div>
+        <div class="theme-group">
+            <button class="theme-btn green" data-theme="green" aria-label="Green theme" title="Green theme"></button>
+        </div>
+        <div class="theme-group">
+            <button class="theme-btn yellow" data-theme="yellow" aria-label="Yellow theme" title="Yellow theme"></button>
+        </div>
+    </li>
+</ul>
             
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-                ☰
+            <button class="mobile-menu-toggle icon icon-menu" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
             </button>
         </nav>
     </header>
@@ -785,7 +1350,7 @@
                 <a href="#contact" class="cta-button">Start Your Project</a>
             </div>
             <div class="hero-image">
-                <img src="public/images/WhatsApp Image 2025-07-18 at 19.36.50 (1).jpeg" alt="Fadhili .C. Peace - Professional Interior Designer">
+                <img src="/images/fadhili-portrait.jpg" alt="Fadhili .C. Peace - Professional Interior Designer">
             </div>
         </div>
     </section>
@@ -794,15 +1359,15 @@
     <section class="stats">
         <div class="stats-container">
             <div class="stat-card">
-                <div class="stat-number">10+</div>
+                <div class="stat-number" data-target="10">0</div>
                 <div class="stat-label">Years Experience</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">50+</div>
+                <div class="stat-number" data-target="50">0</div>
                 <div class="stat-label">Projects Completed</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">100%</div>
+                <div class="stat-number" data-target="100" data-suffix="%">0%</div>
                 <div class="stat-label">Happy Clients</div>
             </div>
         </div>
@@ -812,7 +1377,23 @@
     <section class="about" id="about">
         <div class="about-container">
             <div class="about-image">
-                <img src="public/images/WhatsApp Image 2025-07-18 at 19.36.50 (1).jpeg" alt="Professional Interior Designer">
+                <img src="/images/studio-exterior.jpg" alt="Professional Interior Designer">
+                <div class="social-overlay">
+                    <div class="social-icons">
+                        <a href="https://facebook.com/fadhilidesign" class="social-icon icon icon-facebook" target="_blank" rel="noopener" aria-label="Facebook">
+                        </a>
+                        <a href="https://instagram.com/fadhilidesign" class="social-icon icon icon-instagram" target="_blank" rel="noopener" aria-label="Instagram">
+                        </a>
+                        <a href="https://twitter.com/fadhilidesign" class="social-icon icon icon-twitter" target="_blank" rel="noopener" aria-label="Twitter">
+                        </a>
+                        <a href="https://linkedin.com/in/fadhilidesign" class="social-icon icon icon-linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        </a>
+                        <a href="https://pinterest.com/fadhilidesign" class="social-icon icon icon-pinterest" target="_blank" rel="noopener" aria-label="Pinterest">
+                        </a>
+                        <a href="https://youtube.com/fadhilidesign" class="social-icon icon icon-youtube" target="_blank" rel="noopener" aria-label="YouTube">
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="about-content">
                 <h2>I am Professional Interior Designer</h2>
@@ -827,48 +1408,103 @@
         </div>
     </section>
 
+<!-- Skills Section -->
+<section class="skills" id="skills">
+    <div class="skills-container">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Design Software</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <span class="skill-name">AutoCAD</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">SketchUp</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">3ds Max</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Design Specialties</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <span class="skill-name">Space Planning</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="98%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Color Theory</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="92%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Lighting Design</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="88%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="services-container">
             <h2 class="section-title">My Services</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">⌂</div>
+                    <div class="service-icon icon icon-home"></div>
                     <h3 class="service-title">Residential Design</h3>
                     <p class="service-description">
                         Complete home transformations from design concept through construction completion, ensuring seamless project delivery.
                     </p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">▢</div>
+                    <div class="service-icon icon icon-building"></div>
                     <h3 class="service-title">Commercial Spaces</h3>
                     <p class="service-description">
                         Professional commercial environments that inspire productivity and reflect your brand, with full construction services.
                     </p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">⚒</div>
+                    <div class="service-icon icon icon-tools"></div>
                     <h3 class="service-title">Design & Build</h3>
                     <p class="service-description">
                         Unique approach combining design expertise with construction capabilities for streamlined project execution.
                     </p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">☰</div>
+                    <div class="service-icon icon icon-list"></div>
                     <h3 class="service-title">Project Management</h3>
                     <p class="service-description">
                         Comprehensive project oversight from initial design through final construction, ensuring quality and timeline adherence.
                     </p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">⚏</div>
+                    <div class="service-icon icon icon-settings"></div>
                     <h3 class="service-title">Custom Solutions</h3>
                     <p class="service-description">
                         Bespoke furniture design and custom fixtures tailored to your specific needs and space requirements.
                     </p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">◐</div>
+                    <div class="service-icon icon icon-circle"></div>
                     <h3 class="service-title">Space Planning</h3>
                     <p class="service-description">
                         Strategic space planning and layout optimization for both residential and commercial environments.
@@ -878,13 +1514,50 @@
         </div>
     </section>
 
+<!-- Process Section -->
+<section class="process" id="process">
+    <div class="process-container">
+        <h2 class="section-title">My Design Process</h2>
+        <div class="process-timeline">
+            <div class="process-step">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <h3>Discovery & Consultation</h3>
+                    <p>Understanding your vision, lifestyle, and project requirements through detailed consultation.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <h3>Concept Development</h3>
+                    <p>Creating initial design concepts, mood boards, and space planning solutions.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <h3>Design Refinement</h3>
+                    <p>Refining designs based on feedback and finalizing all design elements and specifications.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">04</div>
+                <div class="step-content">
+                    <h3>Implementation</h3>
+                    <p>Managing construction, procurement, and installation to bring your vision to life.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
         <div class="portfolio-container">
             <h2 class="section-title">Portfolio</h2>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="/public/images/studio-exterior.jpg" alt="Contemporary Outdoor Lounge" class="portfolio-image">
+                    <img src="/images/modern-patio.jpg" alt="Contemporary Outdoor Lounge" class="portfolio-image">
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Contemporary Outdoor Lounge</h3>
                         <p class="portfolio-description">
@@ -893,7 +1566,7 @@
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="public/images/IMG-20250521-WA0034.jpg" alt="Dominion Hair Studio" class="portfolio-image">
+                    <img src="/images/studio-exterior.jpg" alt="Dominion Hair Studio" class="portfolio-image">
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Dominion Hair Studio</h3>
                         <p class="portfolio-description">
@@ -902,7 +1575,7 @@
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="public/images/studio-exterior.jpg" alt="Commercial Outdoor Space" class="portfolio-image">
+                    <img src="/images/dominion-studio.png" alt="Commercial Outdoor Space" class="portfolio-image">
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Commercial Outdoor Space</h3>
                         <p class="portfolio-description">
@@ -911,7 +1584,7 @@
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="public/images/WhatsApp Image 2025-07-19 at 10.01.20 (2).jpeg" alt="Luxury Residential Project" class="portfolio-image">
+                    <img src="/placeholder.svg?height=250&width=350" alt="Luxury Residential Project" class="portfolio-image">
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Luxury Residential Suite</h3>
                         <p class="portfolio-description">
@@ -920,7 +1593,7 @@
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="public/images/studio-exterior.jpg" alt="Modern Kitchen Design" class="portfolio-image">
+                    <img src="/placeholder.svg?height=250&width=350" alt="Modern Kitchen Design" class="portfolio-image">
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Culinary Theater</h3>
                         <p class="portfolio-description">
@@ -929,7 +1602,7 @@
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="public/images/studio-exterior.jpg" alt="Executive Office" class="portfolio-image">
+                    <img src="/placeholder.svg?height=250&width=350" alt="Executive Office" class="portfolio-image">
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Executive Study</h3>
                         <p class="portfolio-description">
@@ -937,6 +1610,48 @@
                         </p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-container">
+            <div class="testimonials-header">
+                <h2>Client Success Stories</h2>
+                <p>Discover what our clients say about their transformative design experiences with Fadhili Design and Build Studio.</p>
+            </div>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-item" id="testimonial-1">
+                    <div class="testimonial-quote icon icon-quote"></div>
+                    <div class="testimonial-rating">
+                        <span class="rating-star icon icon-star"></span>
+                        <span class="rating-star icon icon-star"></span>
+                        <span class="rating-star icon icon-star"></span>
+                        <span class="rating-star icon icon-star"></span>
+                        <span class="rating-star icon icon-star"></span>
+                    </div>
+                    <p class="testimonial-text">
+                        "Fadhili transformed our home beyond our wildest dreams. His attention to detail and creative vision brought our space to life in ways we never imagined possible. The entire design and build process was seamless and professional."
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="/placeholder.svg?height=70&width=70" alt="Sarah Johnson" class="author-avatar">
+                        <div class="author-details">
+                            <h4>Sarah Johnson</h4>
+                            <p>Homeowner, Westlands</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonials-nav">
+                <div class="nav-dot active" data-testimonial="1"></div>
+                <div class="nav-dot" data-testimonial="2"></div>
+                <div class="nav-dot" data-testimonial="3"></div>
+                <div class="nav-dot" data-testimonial="4"></div>
+                <div class="nav-dot" data-testimonial="5"></div>
+                <div class="nav-dot" data-testimonial="6"></div>
             </div>
         </div>
     </section>
@@ -956,21 +1671,21 @@
             <div class="contact-info">
                 <h2>What I do?</h2>
                 <div class="contact-item">
-                    <div class="contact-icon">✉</div>
+                    <div class="contact-icon icon icon-mail"></div>
                     <div>
                         <strong>Email</strong><br>
                         info@fadhilidesign.com
                     </div>
                 </div>
                 <div class="contact-item">
-                    <div class="contact-icon">☎</div>
+                    <div class="contact-icon icon icon-phone"></div>
                     <div>
                         <strong>Phone</strong><br>
                         +254 XXX XXX XXX
                     </div>
                 </div>
                 <div class="contact-item">
-                    <div class="contact-icon">⌖</div>
+                    <div class="contact-icon icon icon-location"></div>
                     <div>
                         <strong>Studio</strong><br>
                         Nairobi, Kenya
@@ -1024,49 +1739,173 @@
         </div>
     </footer>
 
+<!-- Scroll to Top Button -->
+<button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top">
+    <span class="icon icon-up">↑</span>
+</button>
+
     <script>
         // Application Manager
         class PortfolioApp {
             constructor() {
-    this.currentTheme = localStorage.getItem('theme') || 'light';
+    this.currentColor = localStorage.getItem('themeColor') || 'orange';
+    this.currentMode = localStorage.getItem('themeMode') || 'light';
+    this.currentTestimonial = 1;
+    this.testimonials = [
+        {
+            id: 1,
+            text: "Fadhili transformed our home beyond our wildest dreams. His attention to detail and creative vision brought our space to life in ways we never imagined possible. The entire design and build process was seamless and professional.",
+            author: "Sarah Johnson",
+            position: "Homeowner, Westlands",
+            image: "/placeholder.svg?height=70&width=70"
+        },
+        {
+            id: 2,
+            text: "Working with Fadhili Design and Build Studio was the best decision we made for our office renovation. The team delivered exceptional results on time and within budget. Highly professional and creative!",
+            author: "Michael Chen",
+            position: "CEO, Tech Solutions Ltd",
+            image: "/placeholder.svg?height=70&width=70"
+        },
+        {
+            id: 3,
+            text: "Fadhili's expertise in both design and construction made our project incredibly smooth. His creative solutions maximized our space while staying true to our vision. Outstanding work and attention to detail!",
+            author: "Grace Wanjiku",
+            position: "Restaurant Owner",
+            image: "/placeholder.svg?height=70&width=70"
+        },
+        {
+            id: 4,
+            text: "The level of professionalism and creativity Fadhili brought to our residential project was exceptional. Every detail was carefully considered and beautifully executed. We couldn't be happier!",
+            author: "David Kimani",
+            position: "Architect, Nairobi",
+            image: "/placeholder.svg?height=70&width=70"
+        },
+        {
+            id: 5,
+            text: "From concept to completion, Fadhili's team exceeded our expectations. The design perfectly captures our brand identity while creating a functional and beautiful workspace that inspires our team daily.",
+            author: "Linda Muthoni",
+            position: "Boutique Owner, Karen",
+            image: "/placeholder.svg?height=70&width=70"
+        },
+        {
+            id: 6,
+            text: "Fadhili's unique approach to combining design with construction management saved us time and money. The result is a stunning space that perfectly reflects our lifestyle and exceeds our expectations.",
+            author: "James Ochieng",
+            position: "Family Home, Runda",
+            image: "/placeholder.svg?height=70&width=70"
+        }
+    ];
     this.init();
 }
 
             init() {
-                this.setupTheme();
-                this.setupNavigation();
-                this.setupMobileMenu();
-                this.setupForm();
-                this.setupScrollEffects();
-                this.setupTypingAnimation();
+    this.setupTheme();
+    this.setupNavigation();
+    this.setupMobileMenu();
+    this.setupForm();
+    this.setupScrollEffects();
+    this.setupTypingAnimation();
+    this.setupTestimonials();
+    this.setupSkillsAnimation();
+    this.setupScrollToTop();
+}
+
+// Skills Animation
+setupSkillsAnimation() {
+    const skillBars = document.querySelectorAll('.skill-progress');
+    
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const progressBar = entry.target;
+                const width = progressBar.dataset.width;
+                progressBar.style.width = width;
             }
+        });
+    }, observerOptions);
+    
+    skillBars.forEach(bar => observer.observe(bar));
+}
+
+// Scroll to Top Button
+setupScrollToTop() {
+    const scrollBtn = document.getElementById('scroll-to-top');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollBtn.classList.add('visible');
+        } else {
+            scrollBtn.classList.remove('visible');
+        }
+    });
+    
+    scrollBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
 
             // Theme Management
             setupTheme() {
-                document.documentElement.setAttribute('data-theme', this.currentTheme);
-                this.updateThemeButtons();
+    this.currentColor = localStorage.getItem('themeColor') || 'orange';
+    this.currentMode = localStorage.getItem('themeMode') || 'light';
+    this.applyTheme();
+    this.updateThemeButtons();
 
-                const themeButtons = document.querySelectorAll('.theme-btn');
-                themeButtons.forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        this.setTheme(btn.dataset.theme);
-                    });
-                });
-            }
+    const themeButtons = document.querySelectorAll('.theme-btn');
+    const modeButtons = document.querySelectorAll('.theme-mode-btn');
+    
+    themeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            this.currentColor = btn.dataset.theme === 'light' ? 'orange' : btn.dataset.theme;
+            this.applyTheme();
+            this.updateThemeButtons();
+        });
+    });
+    
+    modeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            this.currentMode = btn.dataset.mode;
+            this.applyTheme();
+            this.updateThemeButtons();
+        });
+    });
+}
 
-            setTheme(theme) {
-                document.documentElement.setAttribute('data-theme', theme);
-                localStorage.setItem('theme', theme);
-                this.currentTheme = theme;
-                this.updateThemeButtons();
-            }
+applyTheme() {
+    const theme = this.currentMode === 'dark' && this.currentColor !== 'orange' 
+        ? `${this.currentColor}-dark` 
+        : this.currentMode === 'dark' 
+        ? 'orange-dark' 
+        : this.currentColor === 'orange' 
+        ? 'light' 
+        : this.currentColor;
+    
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('themeColor', this.currentColor);
+    localStorage.setItem('themeMode', this.currentMode);
+}
 
-            updateThemeButtons() {
-                const buttons = document.querySelectorAll('.theme-btn');
-                buttons.forEach(btn => {
-                    btn.classList.toggle('active', btn.dataset.theme === this.currentTheme);
-                });
-            }
+updateThemeButtons() {
+    const themeButtons = document.querySelectorAll('.theme-btn');
+    const modeButtons = document.querySelectorAll('.theme-mode-btn');
+    
+    themeButtons.forEach(btn => {
+        const btnColor = btn.dataset.theme === 'light' ? 'orange' : btn.dataset.theme;
+        btn.classList.toggle('active', btnColor === this.currentColor);
+    });
+    
+    modeButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.mode === this.currentMode);
+    });
+}
 
             // Navigation Management
             setupNavigation() {
@@ -1280,48 +2119,100 @@
             }
 
             // Typing Animation
-setupTypingAnimation() {
-    const typedTextElement = document.getElementById('typed-text');
-    const phrases = [
-        'Interior Designer',
-        'Space Planner', 
-        'Design Consultant',
-        'Project Manager',
-        'Creative Visionary'
-    ];
-    
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 100;
-    
-    const typeText = () => {
-        const currentPhrase = phrases[phraseIndex];
-        
-        if (isDeleting) {
-            typedTextElement.textContent = currentPhrase.substring(0, charIndex - 1);
-            charIndex--;
-            typingSpeed = 50;
-        } else {
-            typedTextElement.textContent = currentPhrase.substring(0, charIndex + 1);
-            charIndex++;
-            typingSpeed = 100;
-        }
-        
-        if (!isDeleting && charIndex === currentPhrase.length) {
-            setTimeout(() => {
-                isDeleting = true;
-            }, 2000);
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-        }
-        
-        setTimeout(typeText, typingSpeed);
-    };
-    
-    typeText();
-}
+            setupTypingAnimation() {
+                const typedTextElement = document.getElementById('typed-text');
+                const phrases = [
+                    'Interior Designer',
+                    'Space Planner', 
+                    'Design Consultant',
+                    'Project Manager',
+                    'Creative Visionary'
+                ];
+                
+                let phraseIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
+                let typingSpeed = 100;
+                
+                const typeText = () => {
+                    const currentPhrase = phrases[phraseIndex];
+                    
+                    if (isDeleting) {
+                        typedTextElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                        charIndex--;
+                        typingSpeed = 50;
+                    } else {
+                        typedTextElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                        charIndex++;
+                        typingSpeed = 100;
+                    }
+                    
+                    if (!isDeleting && charIndex === currentPhrase.length) {
+                        setTimeout(() => {
+                            isDeleting = true;
+                        }, 2000);
+                    } else if (isDeleting && charIndex === 0) {
+                        isDeleting = false;
+                        phraseIndex = (phraseIndex + 1) % phrases.length;
+                    }
+                    
+                    setTimeout(typeText, typingSpeed);
+                };
+                
+                typeText();
+            }
+
+            // Testimonials Management
+            setupTestimonials() {
+                const navDots = document.querySelectorAll('.nav-dot');
+                
+                navDots.forEach(dot => {
+                    dot.addEventListener('click', () => {
+                        const testimonialId = parseInt(dot.dataset.testimonial);
+                        this.showTestimonial(testimonialId);
+                    });
+                });
+
+                // Auto-rotate testimonials
+                setInterval(() => {
+                    this.currentTestimonial = this.currentTestimonial >= this.testimonials.length ? 1 : this.currentTestimonial + 1;
+                    this.showTestimonial(this.currentTestimonial);
+                }, 5000);
+            }
+
+            showTestimonial(id) {
+                const testimonial = this.testimonials.find(t => t.id === id);
+                if (!testimonial) return;
+
+                this.currentTestimonial = id;
+
+                // Update content
+                const testimonialItem = document.getElementById('testimonial-1');
+                const textElement = testimonialItem.querySelector('.testimonial-text');
+                const authorImage = testimonialItem.querySelector('.author-avatar');
+                const authorName = testimonialItem.querySelector('.author-details h4');
+                const authorPosition = testimonialItem.querySelector('.author-details p');
+
+                // Fade out
+                testimonialItem.style.opacity = '0';
+                
+                setTimeout(() => {
+                    textElement.textContent = testimonial.text;
+                    authorImage.src = testimonial.image;
+                    authorImage.alt = testimonial.author;
+                    authorName.textContent = testimonial.author;
+                    authorPosition.textContent = testimonial.position;
+                    
+                    // Fade in
+                    testimonialItem.style.opacity = '1';
+                }, 300);
+
+                // Update navigation dots
+                const navDots = document.querySelectorAll('.nav-dot');
+                navDots.forEach(dot => {
+                    dot.classList.toggle('active', parseInt(dot.dataset.testimonial) === id);
+                });
+            }
         }
 
         // Initialize the application
@@ -1337,34 +2228,45 @@ setupTypingAnimation() {
                 document.body.style.animationPlayState = 'running';
             }
         });
-        document.addEventListener('DOMContentLoaded', () => {
-    function animateCountUp(element, endValue, duration = 1500) {
-        let startValue = 0;
-        let startTime = null;
-        const isPercent = String(endValue).includes('%');
-        const numericEnd = isPercent ? parseInt(endValue) : parseInt(endValue);
 
-        function step(timestamp) {
-            if (!startTime) startTime = timestamp;
-            const progress = Math.min((timestamp - startTime) / duration, 1);
-            const value = Math.floor(progress * numericEnd);
-            element.textContent = isPercent ? value + '%' : value + (String(endValue).includes('+') ? '+' : '');
+    // Animated Counter for Stats Section
+    function animateCounter(el, target, suffix = '', duration = 1500) {
+        let start = 0;
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const value = Math.floor(progress * (target - start) + start);
+            el.textContent = value + suffix;
             if (progress < 1) {
-                requestAnimationFrame(step);
+                window.requestAnimationFrame(step);
             } else {
-                element.textContent = endValue;
+                el.textContent = target + suffix;
             }
-        }
-        requestAnimationFrame(step);
+        };
+        window.requestAnimationFrame(step);
     }
 
-    const statCards = document.querySelectorAll('.stat-card .stat-number');
-    const statValues = ['10+', '50+', '100%'];
-
-    statCards.forEach((el, i) => {
-        animateCountUp(el, statValues[i]);
-    });
-});
+    function handleStatsAnimation() {
+        const statsSection = document.querySelector('.stats');
+        const statNumbers = document.querySelectorAll('.stat-number');
+        let animated = false;
+        function onScroll() {
+            const rect = statsSection.getBoundingClientRect();
+            if (!animated && rect.top < window.innerHeight && rect.bottom > 0) {
+                statNumbers.forEach(el => {
+                    const target = parseInt(el.getAttribute('data-target'));
+                    const suffix = el.getAttribute('data-suffix') || '';
+                    animateCounter(el, target, suffix);
+                });
+                animated = true;
+                window.removeEventListener('scroll', onScroll);
+            }
+        }
+        window.addEventListener('scroll', onScroll);
+        onScroll(); // in case already in view
+    }
+    document.addEventListener('DOMContentLoaded', handleStatsAnimation);
     </script>
 </body>
 </html>
