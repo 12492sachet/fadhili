@@ -1310,6 +1310,53 @@
         [data-theme*="dark"] a:hover {
             color: var(--accent-color);
         }
+
+        /* Add these styles after the existing header and nav styles */
+        [data-theme*="dark"] .header {
+            background: rgba(17, 24, 39, 0.98) !important;
+            border-bottom: 1px solid var(--border-color);
+        }
+        [data-theme*="dark"] .nav-link,
+        [data-theme*="dark"] .logo,
+        [data-theme*="dark"] .contact-btn {
+            color: #fff !important;
+        }
+        [data-theme*="dark"] .contact-btn {
+            background: var(--accent-color);
+            color: #fff !important;
+        }
+        [data-theme*="dark"] .nav-link.active {
+            color: var(--accent-color) !important;
+        }
+        [data-theme*="dark"] .nav-menu {
+            background: #111827 !important;
+        }
+        [data-theme*="dark"] .mobile-menu-toggle {
+            color: #fff !important;
+        }
+
+        /* Add after existing .cta-section styles */
+        [data-theme*="dark"] .cta-section {
+            background: #111827 !important;
+            color: #fff !important;
+        }
+        [data-theme*="dark"] .cta-section h2,
+        [data-theme*="dark"] .cta-section p {
+            color: #fff !important;
+        }
+        [data-theme*="dark"] .cta-section .cta-button {
+            background: var(--accent-color);
+            color: #fff !important;
+        }
+
+        /* Add after existing .footer styles */
+        [data-theme*="dark"] .footer {
+            background: #111827 !important;
+            color: #fff !important;
+        }
+        [data-theme*="dark"] .footer p {
+            color: #fff !important;
+        }
     </style>
 </head>
 <body>
@@ -1695,7 +1742,7 @@
                     <div class="contact-icon icon icon-phone"></div>
                     <div>
                         <strong>Phone</strong><br>
-                        +254 714 38 176
+                        +254 714 381 764
                     </div>
                 </div>
                 <div class="contact-item">
