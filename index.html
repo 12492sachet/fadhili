@@ -1797,7 +1797,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <p>&copy; 2024 Fadhili Design and Build Studio Limited. All rights reserved.</p>
+            <p>&copy; <span id="footer-year"></span> Fadhili Design and Build Studio Limited. All rights reserved.</p>
             <p style="margin-top: 0.5rem; opacity: 0.8;">C.E.O: Fadhili .C. Peace, B.A Interior Design</p>
         </div>
     </footer>
@@ -2330,6 +2330,14 @@ updateThemeButtons() {
         onScroll(); // in case already in view
     }
     document.addEventListener('DOMContentLoaded', handleStatsAnimation);
+
+    // Set current year in footer
+    document.addEventListener('DOMContentLoaded', function() {
+        var yearSpan = document.getElementById('footer-year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+    });
     </script>
 </body>
 </html>
