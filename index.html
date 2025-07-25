@@ -2397,6 +2397,12 @@ updateThemeButtons() {
                             thankYou.innerHTML = "<h3>Thank you for your message! I'll get back to you within 24 hours.</h3>";
                             form.parentNode.insertBefore(thankYou, form);
                             thankYou.focus();
+                            // Reset file input and UI
+                            if (fileInput && fileNameSpan && fileClearBtn) {
+                                fileInput.value = '';
+                                fileNameSpan.textContent = '';
+                                fileClearBtn.style.display = 'none';
+                            }
                             // Animate out after 5 seconds
                             setTimeout(() => {
                                 thankYou.style.transition = 'opacity 1s';
