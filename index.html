@@ -286,24 +286,40 @@
 }
 
 .theme-mode-btn {
-    width: 25px;
-    height: 25px;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
+    width: 28px;
+    height: 28px;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s ease;
     background: var(--primary-bg);
     color: var(--text-primary);
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    margin: 0 2px;
+    position: relative;
 }
 
 .theme-mode-btn.active {
     background: var(--accent-color);
-    color: white;
+    color: #fff;
     border-color: var(--accent-color);
+    box-shadow: 0 4px 16px var(--shadow);
+    transform: scale(1.1);
+}
+
+.theme-mode-btn:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+    z-index: 2;
+}
+
+.theme-mode-btn .icon-sun::before,
+.theme-mode-btn .icon-moon::before {
+    font-size: 1.3em;
 }
 
         .theme-btn {
@@ -1359,6 +1375,36 @@
         [data-theme*="dark"] .footer p {
             color: #fff !important;
         }
+
+        .btn-spinner {
+            display: inline-block;
+            width: 1.2em;
+            height: 1.2em;
+            border: 2.5px solid var(--accent-color);
+            border-top: 2.5px solid transparent;
+            border-radius: 50%;
+            margin-right: 0.5em;
+            vertical-align: middle;
+            animation: spin 0.7s linear infinite;
+        }
+
+        .icon-paperclip::before {
+            content: "\f0c6";
+            font-family: 'Font Awesome 6 Free', 'FontAwesome', Arial, sans-serif;
+            font-weight: 900;
+            display: inline-block;
+        }
+
+        .icon-clear::before {
+            content: "\f1f8";
+            font-family: 'Font Awesome 6 Free', 'FontAwesome', Arial, sans-serif;
+            font-weight: 900;
+            font-size: 1.1em;
+        }
+        .file-upload-clear:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
     </style>
 </head>
 <body>
@@ -1756,25 +1802,22 @@
                 </div>
             </div>
             
-            <form class="contact-form" id="contact-form" novalidate>
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/xdkdgarw" method="POST" novalidate aria-label="Contact form">
                 <div class="form-group">
                     <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" required aria-required="true" aria-label="Full Name">
                 </div>
-                
                 <div class="form-group">
                     <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" required aria-required="true" aria-label="Email Address">
                 </div>
-                
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone">
+                    <input type="tel" id="phone" name="phone" aria-label="Phone Number">
                 </div>
-                
                 <div class="form-group">
                     <label for="project">Project Type</label>
-                    <select id="project" name="project">
+                    <select id="project" name="project" aria-label="Project Type">
                         <option value="">Select a project type</option>
                         <option value="residential">Residential Design</option>
                         <option value="commercial">Commercial Design</option>
@@ -1783,14 +1826,33 @@
                         <option value="other">Other</option>
                     </select>
                 </div>
-                
                 <div class="form-group">
                     <label for="message">Project Details *</label>
-                    <textarea id="message" name="message" placeholder="Tell me about your project, timeline, and budget range..." required></textarea>
+                    <textarea id="message" name="message" placeholder="Tell me about your project, timeline, and budget range..." required aria-required="true" aria-label="Project Details"></textarea>
                 </div>
-                
-                <button type="submit" class="submit-btn">Send Message</button>
+                <!-- File upload (requires Formspree paid plan) -->
+                <div class="form-group file-upload-group">
+                    <label for="attachment" class="file-upload-label" style="display:inline-flex;align-items:center;gap:0.5em;cursor:pointer;">
+                        <span class="icon icon-paperclip" aria-hidden="true" style="font-size:1.2em;"></span>
+                        <span class="file-upload-text">Attach a file (optional)</span>
+                        <input type="file" id="attachment" name="attachment" aria-label="Attach a file" style="display:none;">
+                    </label>
+                    <span class="file-upload-filename" style="margin-left:1.5em;color:var(--text-muted);font-size:0.95em;"></span>
+                    <button type="button" class="file-upload-clear" aria-label="Clear selected file" style="display:none;background:none;border:none;color:#e74c3c;font-size:1.1em;vertical-align:middle;cursor:pointer;margin-left:0.5em;">
+                        <span class="icon icon-clear" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <!-- Google reCAPTCHA widget placeholder (replace SITE_KEY below) -->
+                <div class="form-group" id="recaptcha-container">
+                    <!-- <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div> -->
+                </div>
+                <button type="submit" class="submit-btn" aria-label="Send Message">
+                    <span class="btn-text">Send Message</span>
+                </button>
             </form>
+            <style>
+            @keyframes spin { 100% { transform: rotate(360deg); } }
+            </style>
         </div>
     </section>
 
@@ -2281,6 +2343,113 @@ updateThemeButtons() {
         // Initialize the application
         document.addEventListener('DOMContentLoaded', () => {
             new PortfolioApp();
+
+            // --- Formspree AJAX Submission with improved button spinner ---
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    // Accessibility: remove previous error, focus management
+                    let errorMsg = document.querySelector('.form-error-message');
+                    if (errorMsg) errorMsg.remove();
+                    // Show spinner in button
+                    const submitBtn = form.querySelector('.submit-btn');
+                    const btnText = submitBtn.querySelector('.btn-text');
+                    const originalText = btnText.textContent;
+                    btnText.innerHTML = '<span class="btn-spinner"></span>Sending…';
+                    submitBtn.disabled = true;
+                    // Google reCAPTCHA v2 (uncomment if using)
+                    // const recaptchaResponse = grecaptcha.getResponse();
+                    // if (!recaptchaResponse) {
+                    //     btnText.textContent = originalText;
+                    //     submitBtn.disabled = false;
+                    //     let errorMsg = document.createElement('div');
+                    //     errorMsg.className = 'form-error-message';
+                    //     errorMsg.style.color = '#e74c3c';
+                    //     errorMsg.style.marginTop = '1rem';
+                    //     errorMsg.textContent = 'Please complete the reCAPTCHA.';
+                    //     form.appendChild(errorMsg);
+                    //     form.querySelector('.g-recaptcha').focus();
+                    //     return;
+                    // }
+                    const formData = new FormData(form);
+                    // If using reCAPTCHA, append response:
+                    // formData.append('g-recaptcha-response', recaptchaResponse);
+                    const endpoint = 'https://formspree.io/f/xdkdgarw';
+                    try {
+                        const response = await fetch(endpoint, {
+                            method: 'POST',
+                            headers: { 'Accept': 'application/json' },
+                            body: formData
+                        });
+                        btnText.textContent = originalText;
+                        submitBtn.disabled = false;
+                        if (response.ok) {
+                            form.style.display = 'none';
+                            const thankYou = document.createElement('div');
+                            thankYou.className = 'thank-you-message';
+                            thankYou.style.padding = '2rem';
+                            thankYou.style.background = 'var(--primary-bg)';
+                            thankYou.style.borderRadius = '15px';
+                            thankYou.style.boxShadow = '0 10px 30px var(--shadow)';
+                            thankYou.style.textAlign = 'center';
+                            thankYou.setAttribute('tabindex', '-1');
+                            thankYou.innerHTML = "<h3>Thank you for your message! I'll get back to you within 24 hours.</h3>";
+                            form.parentNode.insertBefore(thankYou, form);
+                            thankYou.focus();
+                            // Animate out after 5 seconds
+                            setTimeout(() => {
+                                thankYou.style.transition = 'opacity 1s';
+                                thankYou.style.opacity = '0';
+                                setTimeout(() => thankYou.remove(), 1000);
+                            }, 5000);
+                            // Google Analytics event (replace with your GA ID and event name)
+                            if (window.gtag) {
+                                window.gtag('event', 'form_submission', {
+                                    'event_category': 'Contact',
+                                    'event_label': 'Contact Form',
+                                    'value': 1
+                                });
+                            }
+                        } else {
+                            throw new Error('Network response was not ok');
+                        }
+                    } catch (error) {
+                        btnText.textContent = originalText;
+                        submitBtn.disabled = false;
+                        let errorMsg = document.createElement('div');
+                        errorMsg.className = 'form-error-message';
+                        errorMsg.style.color = '#e74c3c';
+                        errorMsg.style.marginTop = '1rem';
+                        errorMsg.textContent = 'Sorry, there was a problem sending your message. Please try again later.';
+                        form.appendChild(errorMsg);
+                        form.querySelector('input, textarea, select').focus();
+                    }
+                });
+            }
+            // --- End Formspree AJAX Submission ---
+
+            // Custom file upload icon, filename display, and clear button
+            const fileInput = document.getElementById('attachment');
+            const fileNameSpan = document.querySelector('.file-upload-filename');
+            const fileClearBtn = document.querySelector('.file-upload-clear');
+            if (fileInput && fileNameSpan && fileClearBtn) {
+                fileInput.addEventListener('change', function() {
+                    if (fileInput.files && fileInput.files.length > 0) {
+                        fileNameSpan.textContent = fileInput.files[0].name;
+                        fileClearBtn.style.display = 'inline-block';
+                    } else {
+                        fileNameSpan.textContent = '';
+                        fileClearBtn.style.display = 'none';
+                    }
+                });
+                fileClearBtn.addEventListener('click', function() {
+                    fileInput.value = '';
+                    fileNameSpan.textContent = '';
+                    fileClearBtn.style.display = 'none';
+                    fileInput.focus();
+                });
+            }
         });
 
         // Handle page visibility for performance
