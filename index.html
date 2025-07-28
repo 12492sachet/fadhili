@@ -1543,6 +1543,12 @@
                             <div class="skill-progress" data-width="85%"></div>
                         </div>
                     </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Archicad</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="skill-category">
@@ -1564,6 +1570,12 @@
                         <span class="skill-name">Lighting Design</span>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Furniture Design & Layout</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
                         </div>
                     </div>
                 </div>
@@ -1665,7 +1677,7 @@
         <div class="portfolio-container">
             <h2 class="section-title">Portfolio</h2>
             <div class="portfolio-grid">
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-project="contemporary-outdoor-lounge" style="cursor:pointer;">
                     <img src="public/images/modern-patio.jpg" alt="Contemporary Outdoor Lounge" class="portfolio-image">
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Contemporary Outdoor Lounge</h3>
@@ -1719,6 +1731,15 @@
                         </p>
                     </div>
                 </div>
+                <div class="portfolio-item" data-project="residential-interior" style="cursor:pointer;">
+                    <img src="public/images/kitchen1.jpeg" alt="Residential Interior" class="portfolio-image">
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Residential Interior</h3>
+                        <p class="portfolio-description">
+                            Elegant and functional residential interior design tailored to client lifestyle and preferences.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1745,9 +1766,9 @@
                         "Fadhili transformed our home beyond our wildest dreams. His attention to detail and creative vision brought our space to life in ways we never imagined possible. The entire design and build process was seamless and professional."
                     </p>
                     <div class="testimonial-author">
-                        <img src="public/images/fadhili2.jpeg" alt="Sarah Johnson" class="author-avatar">
+                        <img src="public/images/carenbor.jpg" alt="Caren " class="author-avatar">
                         <div class="author-details">
-                            <h4>Sarah Johnson</h4>
+                            <h4>Caren Bor</h4>
                             <p>Homeowner, Westlands</p>
                         </div>
                     </div>
@@ -1759,8 +1780,6 @@
                 <div class="nav-dot" data-testimonial="2"></div>
                 <div class="nav-dot" data-testimonial="3"></div>
                 <div class="nav-dot" data-testimonial="4"></div>
-                <div class="nav-dot" data-testimonial="5"></div>
-                <div class="nav-dot" data-testimonial="6"></div>
             </div>
         </div>
     </section>
@@ -1880,44 +1899,30 @@
         {
             id: 1,
             text: "Fadhili transformed our home beyond our wildest dreams. His attention to detail and creative vision brought our space to life in ways we never imagined possible. The entire design and build process was seamless and professional.",
-            author: "Sarah Johnson",
+            author: "Caren Bor",
             position: "Homeowner, Westlands",
-            image: "public/images/fadhili2.jpeg"
+            image: "public/images/carenbor.jpg"
         },
         {
             id: 2,
             text: "Working with Fadhili Design and Build Studio was the best decision we made for our office renovation. The team delivered exceptional results on time and within budget. Highly professional and creative!",
-            author: "Michael Chen",
-            position: "CEO, Tech Solutions Ltd",
-            image: "public/images/fadhili2.jpeg"
+            author: "Cleophas Nyagaka",
+            position: "CEO",
+            image: "public/images/cleophasnyagaka.jpg"
         },
         {
             id: 3,
             text: "Fadhili's expertise in both design and construction made our project incredibly smooth. His creative solutions maximized our space while staying true to our vision. Outstanding work and attention to detail!",
             author: "Grace Wanjiku",
             position: "Restaurant Owner",
-            image: "public/images/fadhili2.jpeg"
+            image: "public/images/gracewanjiku.png"
         },
         {
             id: 4,
-            text: "The level of professionalism and creativity Fadhili brought to our residential project was exceptional. Every detail was carefully considered and beautifully executed. We couldn't be happier!",
-            author: "David Kimani",
-            position: "Architect, Nairobi",
-            image: "public/images/fadhili2.jpeg"
-        },
-        {
-            id: 5,
-            text: "From concept to completion, Fadhili's team exceeded our expectations. The design perfectly captures our brand identity while creating a functional and beautiful workspace that inspires our team daily.",
-            author: "Linda Muthoni",
-            position: "Boutique Owner, Karen",
-            image: "public/images/fadhili2.jpeg"
-        },
-        {
-            id: 6,
             text: "Fadhili's unique approach to combining design with construction management saved us time and money. The result is a stunning space that perfectly reflects our lifestyle and exceeds our expectations.",
-            author: "James Ochieng",
+            author: "Lewis Machabe",
             position: "Family Home, Runda",
-            image: "public/images/fadhili2.jpeg"
+            image: "public/images/lewis machabe.jpg"
         }
     ];
     this.init();
@@ -2513,6 +2518,98 @@ updateThemeButtons() {
             yearSpan.textContent = new Date().getFullYear();
         }
     });
+
+    // Portfolio Modal Gallery Implementation
+    (function() {
+        // Images for each project (add more as needed)
+        const projectImages = {
+            'contemporary-outdoor-lounge': [
+                'public/images/modern-patio.jpg',
+                'public/images/k2.jpeg',
+                'public/images/k3.jpeg',
+                'public/images/k5.jpeg'
+            ],
+            'residential-interior': [
+                'public/images/fadhili wife.jpeg',
+                'public/images/fadhili1.jpeg',
+                'public/images/fadhili2.jpeg',
+                'public/images/k2.jpeg',
+                'public/images/k3.jpeg',
+                'public/images/k5.jpeg',
+                'public/images/kitchen1.jpeg',
+                'public/images/w3.jpeg',
+                'public/images/w4.jpeg'
+            ]
+            // Add more projects here if needed
+        };
+        let currentGallery = [];
+        let currentIndex = 0;
+        const modal = document.getElementById('portfolio-modal');
+        const modalImg = document.getElementById('modal-image');
+        const modalCounter = document.getElementById('modal-counter');
+        const closeBtn = document.getElementById('modal-close');
+        const prevBtn = document.getElementById('modal-prev');
+        const nextBtn = document.getElementById('modal-next');
+        // Open modal on portfolio item click
+        document.querySelectorAll('.portfolio-item[data-project]').forEach(item => {
+            item.addEventListener('click', function() {
+                const project = item.getAttribute('data-project');
+                if (projectImages[project]) {
+                    currentGallery = projectImages[project];
+                    currentIndex = 0;
+                    showModalImage();
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+        function showModalImage() {
+            if (!currentGallery.length) return;
+            modalImg.src = currentGallery[currentIndex];
+            modalCounter.textContent = (currentIndex + 1) + ' / ' + currentGallery.length;
+        }
+        // Navigation
+        prevBtn.addEventListener('click', function() {
+            if (!currentGallery.length) return;
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            showModalImage();
+        });
+        nextBtn.addEventListener('click', function() {
+            if (!currentGallery.length) return;
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            showModalImage();
+        });
+        // Close modal
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeModal();
+        });
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (modal.style.display === 'flex') {
+                if (e.key === 'ArrowLeft') prevBtn.click();
+                if (e.key === 'ArrowRight') nextBtn.click();
+                if (e.key === 'Escape') closeModal();
+            }
+        });
+    })();
     </script>
+
+    <!-- Modal Gallery for Portfolio -->
+    <div id="portfolio-modal" class="portfolio-modal" style="display:none;position:fixed;z-index:2000;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;">
+        <div class="modal-content" style="position:relative;max-width:90vw;max-height:90vh;display:flex;flex-direction:column;align-items:center;">
+            <button id="modal-close" aria-label="Close gallery" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;z-index:2;">&times;</button>
+            <img id="modal-image" src="" alt="Gallery Image" style="max-width:80vw;max-height:70vh;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.4);margin-bottom:1rem;">
+            <div style="display:flex;align-items:center;gap:2rem;">
+                <button id="modal-prev" aria-label="Previous image" style="background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;">&#8592;</button>
+                <span id="modal-counter" style="color:#fff;font-size:1.1rem;"></span>
+                <button id="modal-next" aria-label="Next image" style="background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;">&#8594;</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
