@@ -1865,7 +1865,7 @@
                     </div>
                 </div>
                 <div class="portfolio-item" data-project="residential-interior" style="cursor:pointer;">
-                    <img src="public/images/kitchen1.jpeg" alt="Residential Interior" class="portfolio-image">
+                    <img src="public/images/ri1.jpeg" alt="Residential Interior" class="portfolio-image">
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Residential Interior</h3>
                         <p class="portfolio-description">
@@ -1954,7 +1954,7 @@
                 </div>
             </div>
             
-            <form class="contact-form" id="contact-form" action="https://formspree.io/f/xdkdgarw" method="POST" novalidate aria-label="Contact form">
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/manbjagn" method="POST" novalidate aria-label="Contact form">
                 <div class="form-group">
                     <label for="name">Full Name *</label>
                     <input type="text" id="name" name="name" required aria-required="true" aria-label="Full Name">
@@ -2485,14 +2485,14 @@ updateThemeButtons() {
                         if (!imageLoaded) {
                             imageLoaded = true;
                             console.log('Testimonial image loaded successfully:', testimonial.image);
-                            authorImage.src = testimonial.image;
-                            authorImage.alt = testimonial.author;
-                            authorName.textContent = testimonial.author;
-                            authorPosition.textContent = testimonial.position;
-                            
+                    authorImage.src = testimonial.image;
+                    authorImage.alt = testimonial.author;
+                    authorName.textContent = testimonial.author;
+                    authorPosition.textContent = testimonial.position;
+                    
                             // Remove loading state and fade in
                             authorImage.classList.remove('loading');
-                            testimonialItem.style.opacity = '1';
+                    testimonialItem.style.opacity = '1';
                         }
                     };
                     newImage.onerror = () => {
@@ -2549,22 +2549,17 @@ updateThemeButtons() {
                         'public/images/w4.jpeg'
                     ],
                     'residential-interior': [
-                        'public/images/fadhili wife.jpeg',
-                        'public/images/fadhili1.jpeg',
-                        'public/images/fadhili2.jpeg',
-                        'public/images/k2.jpeg',
-                        'public/images/k3.jpeg',
-                        'public/images/k5.jpeg',
-                        'public/images/kitchen1.jpeg',
-                        'public/images/w3.jpeg',
-                        'public/images/w4.jpeg'
+                        'public/images/ri1.jpeg',
+                        'public/images/ri2.jpeg',
+                        'public/images/ri3.jpeg',
+                        'public/images/ri4.jpeg'
                     ],
                     'dominion-hair-studio': [
                         'public/images/studio-exterior.jpg',
                         'public/images/dominion-studio.png',
-                        'public/images/modern-patio.jpg',
-                        'public/images/k2.jpeg',
-                        'public/images/k3.jpeg'
+                        'public/images/d3.jpeg',
+                        'public/images/d1.jpeg',
+                        'public/images/d2.jpeg'
                     ],
                     'commercial-outdoor-space': [
                         'public/images/dominion-studio.png',
@@ -2791,7 +2786,7 @@ updateThemeButtons() {
                     const formData = new FormData(form);
                     // If using reCAPTCHA, append response:
                     // formData.append('g-recaptcha-response', recaptchaResponse);
-                    const endpoint = 'https://formspree.io/f/xdkdgarw';
+                    const endpoint = 'https://formspree.io/f/manbjagn';
                     try {
                         const response = await fetch(endpoint, {
                             method: 'POST',
