@@ -1034,6 +1034,18 @@
         margin: 0;
         margin-left: 2rem;
     }
+
+    .scroll-to-top {
+        bottom: 2rem;
+        right: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-to-top {
+        bottom: 2rem;
+        right: 0.75rem;
+    }
 }
 
         /* CTA Section */
@@ -1422,6 +1434,73 @@
         .file-upload-clear:focus {
             outline: 2px solid var(--accent-color);
             outline-offset: 2px;
+        }
+
+        /* WhatsApp Chat Button */
+        .whatsapp-chat {
+            position: fixed;
+            bottom: 8rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+            border: none;
+            cursor: pointer;
+        }
+
+        .whatsapp-chat:hover {
+            transform: translateY(-2px);
+            background: var(--accent-hover);
+            box-shadow: 0 6px 25px var(--shadow);
+        }
+
+        .whatsapp-chat:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 20px var(--shadow);
+            }
+            50% {
+                box-shadow: 0 4px 25px var(--shadow);
+            }
+            100% {
+                box-shadow: 0 4px 20px var(--shadow);
+            }
+        }
+
+        /* Responsive WhatsApp Chat Button */
+        @media (max-width: 768px) {
+            .whatsapp-chat {
+                bottom: 7rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-chat {
+                bottom: 6.5rem;
+                right: 0.75rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
         }
 
         /* Portfolio Modal Improvements */
@@ -1942,6 +2021,15 @@
     <span class="icon icon-up">↑</span>
 </button>
 
+<!-- WhatsApp Chat Button -->
+<a href="https://wa.me/254714381764?text=Hello%20Fadhili!%20I%20saw%20your%20portfolio%20and%20I'm%20interested%20in%20your%20interior%20design%20services.%20Could%20you%20please%20tell%20me%20more%20about%20your%20services%20and%20pricing?" 
+   class="whatsapp-chat" 
+   target="_blank" 
+   rel="noopener" 
+   aria-label="Chat with Fadhili on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
     <script>
         // Application Manager
         class PortfolioApp {
@@ -1993,6 +2081,7 @@
     this.setupSkillsAnimation();
     this.setupScrollToTop();
     this.setupPortfolioModal();
+    this.setupWhatsAppButton();
 }
 
 // Skills Animation
@@ -2643,6 +2732,26 @@ updateThemeButtons() {
                         this.modal.style.display = 'none';
                         document.body.style.overflow = '';
                     }, 300);
+                }
+            }
+
+            // WhatsApp Chat Button Management
+            setupWhatsAppButton() {
+                const whatsappButton = document.querySelector('.whatsapp-chat');
+                if (whatsappButton) {
+                    whatsappButton.addEventListener('click', (e) => {
+                        // Track WhatsApp click event
+                        console.log('WhatsApp chat button clicked');
+                        
+                        // Google Analytics event (if available)
+                        if (window.gtag) {
+                            window.gtag('event', 'whatsapp_click', {
+                                'event_category': 'Contact',
+                                'event_label': 'WhatsApp Chat Button',
+                                'value': 1
+                            });
+                        }
+                    });
                 }
             }
         }
